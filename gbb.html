@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#172554">
+<title>Facebook Growth Planner</title>
+<style>
+:root{--navy:#172554;--blue:#2563eb;--sky:#eaf2ff;--ink:#182230;--muted:#667085;--line:#e4e7ec;--bg:#f5f7fb;--white:#fff;--green:#12805c;--red:#c2413b;--purple:#7356bf}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:650;background:var(--blue);color:white}button.secondary{background:#eef2f7;color:#273449;border:1px solid #d9e0ea}button.danger{background:#fff0ef;color:#a12822;border:1px solid #ffd2cf}button.small{padding:7px 10px;font-size:13px}button:disabled{opacity:.45;cursor:not-allowed}.hidden{display:none!important}.muted{color:var(--muted)}.tiny{font-size:12px}.wrap{max-width:1240px;margin:auto;padding:22px}.topbar{background:linear-gradient(115deg,#111d45,#233c79 65%,#4f46a5);color:#fff;padding:18px 22px}.topinner{max-width:1240px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,#60a5fa,#a78bfa);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:900;box-shadow:0 5px 16px #0002;flex-shrink:0}.brand h1{font-size:19px;margin:0}.brand p{margin:2px 0 0;color:#c7d2fe;font-size:12px}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.top-actions button{background:#fff;color:var(--navy)}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin:5px 0 20px;flex-wrap:wrap}.hero h2{font-size:27px;letter-spacing:-.6px;margin:0 0 5px}.hero p{margin:0;color:var(--muted)}.date-pill{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-weight:700}.nav{display:flex;gap:8px;overflow:auto;margin-bottom:18px;padding-bottom:3px}.nav button{white-space:nowrap;background:#e9edf5;color:#475467}.nav button.active{background:var(--navy);color:#fff}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:0 2px 7px #10182808}.stat .label{font-size:13px;color:var(--muted);font-weight:650}.stat .value{font-size:27px;font-weight:800;letter-spacing:-.5px;margin:7px 0 2px}.stat .sub{font-size:12px;color:var(--muted)}.positive{color:var(--green)!important}.negative{color:var(--red)!important}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 14px}.section-title h3{font-size:17px;margin:0}.section-title p{margin:3px 0 0;color:var(--muted);font-size:12px}.grid2{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-bottom:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.bars{display:flex;flex-direction:column;gap:14px}.barrow{display:grid;grid-template-columns:minmax(100px,1fr) 2fr auto;align-items:center;gap:10px;font-size:13px}.bartrack{height:9px;border-radius:99px;background:#edf0f5;overflow:hidden}.barfill{height:100%;border-radius:99px;background:linear-gradient(90deg,#2563eb,#60a5fa)}.barrow strong{font-variant-numeric:tabular-nums}.nichegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.niche{border:1px solid var(--line);border-radius:12px;padding:13px}.niche .emoji{font-size:22px}.niche h4{margin:5px 0 3px;font-size:13px}.niche .big{font-size:21px;font-weight:800}.niche small{color:var(--muted)}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:640px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #edf0f4;font-size:13px}th{color:#667085;font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:#fafbfc}td input,td select{width:100%;min-width:80px;padding:8px;border:1px solid #d0d5dd;border-radius:8px;background:white}td .count{max-width:125px}td .nameinput{min-width:180px}.typepill{display:inline-block;padding:4px 8px;border-radius:99px;font-size:11px;font-weight:750}.pagepill{background:#eaf2ff;color:#2456a6}.grouppill{background:#f0eaff;color:#6844a6}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:12px;font-weight:700;color:#475467}.field input,.field select{padding:10px 11px;border:1px solid #d0d5dd;border-radius:10px;background:white;width:100%}.formrow{display:grid;grid-template-columns:1.3fr .8fr .8fr auto;gap:10px;align-items:end}.notice{padding:12px 14px;background:#fff8e8;border:1px solid #ffe1a3;border-radius:12px;color:#7a4b00;font-size:13px;margin-bottom:15px}.success{padding:12px 14px;background:#eafaf2;border:1px solid #b7ebd0;border-radius:12px;color:#126442;font-size:13px;margin-bottom:15px}.empty{padding:25px;text-align:center;color:var(--muted)}.historycards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.historycard{border:1px solid var(--line);border-radius:12px;padding:13px}.historycard strong{display:block;font-size:20px;margin-top:5px}.footer{color:#7b8494;font-size:12px;text-align:center;padding:25px 10px}.login-screen{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 20% 20%,#dbeafe,transparent 34%),radial-gradient(circle at 85% 80%,#e9d5ff,transparent 30%),#f5f7fb}.login-card{width:min(100%,420px);background:white;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 18px 50px #1e293b15}.login-card .logo{margin-bottom:18px}.login-card h1{font-size:25px;margin:0 0 6px}.login-card p{color:var(--muted);margin:0 0 20px}.login-card .field{margin-bottom:13px}.login-card button{width:100%;margin-top:8px}.login-foot{font-size:11px;color:#7b8494;margin-top:17px}.chart-note{font-size:12px;color:var(--muted);margin-top:10px}.backupbox{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:14px;border:1px dashed #c6d0e0;border-radius:12px;background:#fafcff}.backupbox input{max-width:100%}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#172554;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:0 8px 25px #0002;z-index:99;max-width:90vw}.chart-wrap{height:245px;position:relative}.chart-wrap svg{width:100%;height:100%;overflow:visible}.chart-grid{stroke:#e9edf5;stroke-width:1}.chart-line{fill:none;stroke:#2563eb;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.chart-area{fill:url(#chartFill)}.chart-dot{fill:#fff;stroke:#2563eb;stroke-width:2}.chart-label{fill:#667085;font-size:11px}
+@media(max-width:850px){.wrap{padding:15px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2,.grid3{grid-template-columns:1fr}.historycards{grid-template-columns:1fr}.formrow{grid-template-columns:1fr 1fr}.formrow .wide{grid-column:1/-1}.topinner{align-items:flex-start}.top-actions button{padding:8px 10px}.hero h2{font-size:23px}.stat .value{font-size:24px}}
+@media(max-width:480px){.topbar{padding:14px}.brand h1{font-size:16px}.brand p{font-size:11px}.top-actions{max-width:140px}.top-actions button{font-size:11px}.stats{gap:9px}.stat{padding:13px}.stat .value{font-size:22px}.stat .label{font-size:12px}.date-pill{font-size:12px}.barrow{grid-template-columns:1fr auto;gap:7px}.bartrack{grid-column:1/-1;grid-row:2}.barrow strong{grid-column:2;grid-row:1}.nichegrid{grid-template-columns:1fr 1fr}.niche{padding:10px}.formrow{grid-template-columns:1fr}.formrow .wide{grid-column:auto}.section-title{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div id="loginScreen" class="login-screen">
+  <form id="loginForm" class="login-card">
+    <div class="logo">FG</div><h1>Facebook Growth Planner</h1>
+    <p id="loginSub">Sign in to manage your Pages and Groups.</p>
+    <div id="setupNote" class="notice hidden">Default login: username <strong>admin</strong>, password <strong>333</strong>. Change this in your browser's local storage before sharing this device.</div>
+    <div class="field"><label for="username">Username</label><input id="username" autocomplete="username" required placeholder="Enter username" value="admin"></div>
+    <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required placeholder="Enter password"></div>
+    <button id="loginButton" type="submit">Log In</button><div id="loginError" class="tiny negative" style="margin-top:10px"></div>
+    <div class="login-foot">Data stays in this browser unless you export a JSON backup. This local login is not strong website security.</div>
+  </form>
+</div>
+<div id="app" class="hidden">
+<header class="topbar"><div class="topinner">
+  <div class="brand"><div class="logo">FG</div><div><h1>Facebook Growth Planner</h1><p>Private workspace · Bangladesh Time (UTC+6)</p></div></div>
+  <div class="top-actions"><button id="quickExport" type="button">↓ Backup JSON</button><button id="headerUpload" type="button" class="upload-action">↑ Restore JSON</button><button id="logoutBtn" type="button">Log Out</button></div>
+</div></header>
+<main class="wrap">
+  <div class="hero"><div><h2 id="greeting">Your growth at a glance</h2><p>Track followers, group members and monthly progress — all in one place.</p></div><div class="date-pill" id="todayLabel">Bangladesh time</div></div>
+  <div id="noticeArea"></div>
+  <nav class="nav" aria-label="Main navigation"><button class="active" data-view="dashboard">Dashboard</button><button data-view="tracker">Daily Tracker</button><button data-view="history">History & Summary</button><button data-view="manage">Manage Accounts</button><button data-view="backup">Backup & Settings</button></nav>
+  <section id="view-dashboard">
+    <div class="stats">
+      <div class="stat"><div class="label">Total Page Followers</div><div class="value" id="totalFollowers">0</div><div class="sub" id="pageCount">0 Pages tracked</div></div>
+      <div class="stat"><div class="label">Total Group Members</div><div class="value" id="totalMembers">0</div><div class="sub" id="groupCount">0 Groups tracked</div></div>
+      <div class="stat"><div class="label">Today's Growth</div><div class="value" id="todayGrowth">—</div><div class="sub">Compared with previous saved day</div></div>
+      <div class="stat"><div class="label">This Month's Growth</div><div class="value" id="monthGrowth">—</div><div class="sub" id="monthGrowthSub">Compared with month start</div></div>
+    </div>
+    <div class="grid2"><div class="panel"><div class="section-title"><div><h3>Top Pages by Followers</h3><p>Your largest audiences right now</p></div></div><div id="topPages" class="bars"></div></div><div class="panel"><div class="section-title"><div><h3>Niche Overview</h3><p>Combined audience by community</p></div></div><div id="nicheOverview" class="nichegrid"></div></div></div>
+    <div class="panel" style="margin-bottom:16px"><div class="section-title"><div><h3>Audience Growth Trend</h3><p>Total Page followers + Group members across your saved snapshots</p></div></div><div id="growthChart" class="chart-wrap"></div><div class="chart-note">The chart updates automatically when you save a daily snapshot.</div></div>
+    <div class="panel"><div class="section-title"><div><h3>Recent Daily Snapshots</h3><p>Saved totals by Bangladesh date</p></div><button class="secondary small" type="button" onclick="showView('history')">View History</button></div><div id="recentHistory"></div></div>
+  </section>
+  <section id="view-tracker" class="hidden"><div class="panel">
+    <div class="section-title"><div><h3>Daily Follower & Member Update</h3><p>Enter today's numbers, then save one snapshot per date.</p></div><div class="date-pill" id="trackerDateLabel"></div></div>
+    <div class="formrow" style="margin-bottom:15px"><div class="field"><label for="entryDate">Snapshot date (Bangladesh)</label><input type="date" id="entryDate"></div><div class="field"><label for="snapshotNote">Optional note</label><input id="snapshotNote" placeholder="e.g. nightly update"></div><div class="field"><label>Mode</label><select id="entryMode"><option value="save">Save / Update snapshot</option><option value="load">Load saved snapshot</option></select></div><div><button id="loadOrSave" type="button">Load Date</button></div></div>
+    <div class="notice">Tip: update the numbers you know. Blank values count as 0. Saving the same date updates that day's snapshot instead of creating a duplicate.</div>
+    <div class="tablewrap"><table><thead><tr><th>Order</th><th>Account</th><th>Type</th><th>Niche</th><th>Followers / Members</th></tr></thead><tbody id="trackerRows"></tbody></table></div>
+    <div class="toolbar"><button id="saveSnapshot" type="button">Save Today's Snapshot</button><button class="secondary" id="clearCounts" type="button">Clear Inputs</button><button class="secondary" id="trackerExport" type="button">Download JSON Backup</button></div>
+  </div></section>
+  <section id="view-history" class="hidden"><div class="panel" style="margin-bottom:16px"><div class="section-title"><div><h3>History & Monthly Summary</h3><p>Compare snapshots and inspect saved growth.</p></div><div class="field" style="min-width:160px"><label for="monthSelect">Month</label><input type="month" id="monthSelect"></div></div><div class="historycards" id="historyStats"></div></div><div class="panel"><div class="section-title"><div><h3>Daily History</h3><p>Page followers and group members saved each day</p></div><button class="secondary small" id="historyExport" type="button">Export CSV</button></div><div id="historyTable"></div></div></section>
+  <section id="view-manage" class="hidden"><div class="panel" style="margin-bottom:16px"><div class="section-title"><div><h3>Manage Pages & Groups</h3><p>Add, rename or remove tracked accounts.</p></div></div><div class="formrow"><div class="field wide"><label for="newName">Account name</label><input id="newName" placeholder="e.g. Australian Shepherd Lovers"></div><div class="field"><label for="newType">Account type</label><select id="newType"><option value="Page">Facebook Page</option><option value="Group">Facebook Group</option></select></div><div class="field"><label for="newNiche">Niche</label><select id="newNiche"><option>Golden Retriever</option><option>Australian Shepherd</option><option>Bernese Mountain Dog</option><option>Cat</option><option>Other</option></select></div><div><button id="addAccount" type="button">+ Add Account</button></div></div></div><div class="panel"><div class="section-title"><div><h3>Tracked Accounts</h3><p>Current numbers can also be edited in Daily Tracker.</p></div></div><div class="tablewrap"><table><thead><tr><th>Account name</th><th>Type</th><th>Niche</th><th>Current count</th><th>Action</th></tr></thead><tbody id="manageRows"></tbody></table></div></div></section>
+  <section id="view-backup" class="hidden"><div class="panel" style="margin-bottom:16px"><div class="section-title"><div><h3>JSON Backup & Restore</h3><p>Move your planner between browsers and devices.</p></div></div><div class="backupbox"><div style="flex:1;min-width:220px"><strong>Restore a previous backup</strong><div class="tiny muted">Choose a JSON file previously downloaded from this planner.</div></div><input type="file" id="jsonFile" accept=".json,application/json"><button id="importJson" type="button">Upload & Restore</button></div><div class="toolbar"><button id="exportJson" type="button">Download Current JSON</button><button class="secondary" id="exportCsv" type="button">Download History CSV</button><button class="danger" id="resetData" type="button">Reset Planner Data</button></div><div class="notice"><strong>Important:</strong> Download a fresh backup after updates. Restoring a backup replaces current planner data.</div></div>
+    <div class="panel"><div class="section-title"><div><h3>Account & Time Settings</h3><p>Snapshot dates use Asia/Dhaka.</p></div></div><div class="grid3"><div><strong>Timezone</strong><p class="muted">Asia/Dhaka (UTC+06:00)</p></div><div><strong>Data storage</strong><p class="muted">This browser + your JSON backup</p></div><div><strong>Current local date</strong><p class="muted" id="settingsDate"></p></div></div><div class="notice" style="margin-top:14px">Security note: this static website's local login is a convenience lock, not strong security. Do not publish sensitive information without server-side access protection.</div></div>
+  </section>
+  <div class="footer">Shopmartix · Facebook Growth Planner · Built for personal tracking · Bangladesh Time</div>
+</main></div>
+<input type="file" id="headerJsonFile" accept=".json,application/json" class="hidden">
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+const TZ='Asia/Dhaka', KEY='fgp_v1_data', AUTH='fgp_v1_auth';
+const ACCOUNTS_SEED=[
+{id:'p1',name:'Golden Retriever Diarie Page',type:'Page',niche:'Golden Retriever',count:1800},
+{id:'p2',name:'Golden Retriever Lover Page',type:'Page',niche:'Golden Retriever',count:13},
+{id:'p3',name:'Loyal Shepherd Life Page',type:'Page',niche:'Australian Shepherd',count:72},
+{id:'p4',name:'Australian Shepherd Lover Page',type:'Page',niche:'Australian Shepherd',count:3000},
+{id:'p5',name:'Bernese Tales Page',type:'Page',niche:'Bernese Mountain Dog',count:144},
+{id:'p6',name:'Bernese Mountain Lover Page',type:'Page',niche:'Bernese Mountain Dog',count:23},
+{id:'p7',name:'Cat Family Funs Page',type:'Page',niche:'Cat',count:1315},
+{id:'p8',name:'yes cat lover Page',type:'Page',niche:'Cat',count:777},
+{id:'g1',name:'Golden Retriever Diarie Group',type:'Group',niche:'Golden Retriever',count:199},
+{id:'g2',name:'Loyal Shepherd Life Group',type:'Group',niche:'Australian Shepherd',count:0},
+{id:'g3',name:'Bernese Tales Group',type:'Group',niche:'Bernese Mountain Dog',count:1},
+{id:'g4',name:'Cat Fans Club Group',type:'Group',niche:'Cat',count:515},
+{id:'g5',name:'Pet lovers world Group',type:'Group',niche:'Cat',count:370}
+];
+let data={version:1,timezone:TZ,accounts:structuredClone(ACCOUNTS_SEED),snapshots:[],updatedAt:null};
+let toastTimer=null;
+function todayDhaka(){const parts=new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const o={};parts.forEach(p=>o[p.type]=p.value);return `${o.year}-${o.month}-${o.day}`}
+function monthDhaka(){return todayDhaka().slice(0,7)}
+function fmt(n){return Number(n||0).toLocaleString('en-US')}
+function signed(n){return (n>0?'+':'')+fmt(n)}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),3200)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function cloneSeed(){return ACCOUNTS_SEED.map(a=>({...a}))}
+function saveLocal(){try{data.updatedAt=new Date().toISOString();localStorage.setItem(KEY,JSON.stringify(data));return true}catch(e){showToast('Could not save locally. Browser storage may be full or disabled.');return false}}
+function normalizeData(d){
+ if(!d||!Array.isArray(d.accounts)||!Array.isArray(d.snapshots))throw new Error('Invalid planner JSON: accounts and snapshots arrays are required.');
+ const ids=new Set();
+ const accounts=d.accounts.map((a,i)=>{
+  if(!a||typeof a!=='object')throw new Error(`Invalid account at row ${i+1}.`);
+  const id=String(a.id??'');if(!id||ids.has(id))throw new Error('Account IDs must be present and unique.');ids.add(id);
+  const type=a.type==='Group'?'Group':'Page';
+  return {id,name:String(a.name??'Untitled account').slice(0,200),type,niche:String(a.niche??'Other').slice(0,100),count:Math.max(0,Math.floor(Number(a.count)||0))};
+ });
+ const dates=new Set();
+ const snapshots=d.snapshots.map((s,i)=>{
+  if(!s||typeof s!=='object'||!/^\d{4}-\d{2}-\d{2}$/.test(String(s.date||'')))throw new Error(`Invalid snapshot date at row ${i+1}.`);
+  if(dates.has(s.date))throw new Error('Backup contains duplicate snapshot dates.');dates.add(s.date);
+  const counts={};accounts.forEach(a=>{counts[a.id]=Math.max(0,Math.floor(Number(s.counts?.[a.id])||0))});
+  return {date:s.date,counts,note:String(s.note??'').slice(0,1000),savedAt:s.savedAt||null};
+ });
+ snapshots.sort((a,b)=>a.date.localeCompare(b.date));
+ return {version:1,timezone:TZ,accounts,snapshots,updatedAt:d.updatedAt||null};
+}
+function loadLocal(){
+ try{const raw=localStorage.getItem(KEY);if(raw){data=normalizeData(JSON.parse(raw));return}}
+ catch(e){console.warn('Saved planner data could not be loaded:',e);showToast('Saved data was invalid. Starter data loaded; import a backup if needed.')}
+ data={version:1,timezone:TZ,accounts:cloneSeed(),snapshots:[],updatedAt:null};
+}
+function hashText(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(16)}
+function authExists(){return !!localStorage.getItem(AUTH)}
+function loginInit(){document.getElementById('setupNote').classList.toggle('hidden',authExists());document.getElementById('loginSub').textContent=authExists()?'Sign in to manage your Pages and Groups.':'Default login: username admin, password 333.';document.getElementById('loginButton').textContent='Log In'}
+document.getElementById('loginForm').addEventListener('submit',e=>{
+ e.preventDefault();const u=document.getElementById('username').value.trim(),p=document.getElementById('password').value,err=document.getElementById('loginError');
+ if(!u||!p){err.textContent='Enter both username and password.';return}
+ try{
+  if(!authExists()){localStorage.setItem(AUTH,JSON.stringify({u:'admin',ph:hashText('admin:333')}));}
+  const a=JSON.parse(localStorage.getItem(AUTH));
+  if(a.u===u&&a.ph===hashText(u+':'+p)){err.textContent='';enterApp();showToast('Login successful.')}
+  else err.textContent='Incorrect username or password. Default login: admin / 333 (first-time setup only).';
+ }catch(_){err.textContent='Browser storage is unavailable. Enable local storage or use a normal browser window.'}
+});
+function enterApp(){document.getElementById('loginScreen').classList.add('hidden');document.getElementById('app').classList.remove('hidden');loadLocal();initDraft();renderAll()}
+document.getElementById('logoutBtn').addEventListener('click',()=>{document.getElementById('app').classList.add('hidden');document.getElementById('loginScreen').classList.remove('hidden');document.getElementById('password').value='';loginInit()});
+function initDraft(){document.getElementById('entryDate').value=todayDhaka();document.getElementById('monthSelect').value=monthDhaka()}
+function showView(v){document.querySelectorAll('[id^="view-"]').forEach(el=>el.classList.add('hidden'));document.getElementById('view-'+v).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===v));if(v==='tracker')renderTracker();if(v==='manage')renderManage();if(v==='history')renderHistory();if(v==='dashboard')renderDashboard()}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+function currentCounts(){const o={};data.accounts.forEach(a=>o[a.id]=Number(a.count)||0);return o}
+function sumCounts(counts,type){return data.accounts.filter(a=>!type||a.type===type).reduce((s,a)=>s+(Number(counts[a.id])||0),0)}
+function totalsForSnapshot(s){return {pages:data.accounts.filter(a=>a.type==='Page').reduce((n,a)=>n+(Number(s.counts?.[a.id])||0),0),groups:data.accounts.filter(a=>a.type==='Group').reduce((n,a)=>n+(Number(s.counts?.[a.id])||0),0)}}
+function getSnapshot(date){return data.snapshots.find(s=>s.date===date)}
+function prevSnapshot(date){return data.snapshots.filter(s=>s.date<date).sort((a,b)=>b.date.localeCompare(a.date))[0]}
+function monthFirstSnapshot(month){return data.snapshots.filter(s=>s.date.startsWith(month)).sort((a,b)=>a.date.localeCompare(b.date))[0]}
+function monthLastSnapshot(month){return data.snapshots.filter(s=>s.date.startsWith(month)).sort((a,b)=>b.date.localeCompare(a.date))[0]}
+function renderAll(){const now=todayDhaka();document.getElementById('todayLabel').textContent=new Intl.DateTimeFormat('en-US',{timeZone:TZ,weekday:'short',month:'short',day:'numeric',year:'numeric'}).format(new Date())+' · Dhaka';document.getElementById('trackerDateLabel').textContent=now;document.getElementById('settingsDate').textContent=now;document.getElementById('entryDate').value=now;document.getElementById('monthSelect').value=monthDhaka();renderDashboard();renderTracker();renderManage();renderHistory()}
+function renderDashboard(){
+ const counts=currentCounts(),pages=sumCounts(counts,'Page'),groups=sumCounts(counts,'Group');
+ document.getElementById('totalFollowers').textContent=fmt(pages);document.getElementById('totalMembers').textContent=fmt(groups);
+ document.getElementById('pageCount').textContent=data.accounts.filter(a=>a.type==='Page').length+' Pages tracked';document.getElementById('groupCount').textContent=data.accounts.filter(a=>a.type==='Group').length+' Groups tracked';
+ const current=getSnapshot(todayDhaka()),prev=prevSnapshot(todayDhaka());let tg='—',mg='—',mgs='No saved month snapshots yet';
+ if(current&&prev){const a=totalsForSnapshot(current),b=totalsForSnapshot(prev);tg=signed(a.pages+a.groups-b.pages-b.groups)}else if(current)tg='0';
+ const tgEl=document.getElementById('todayGrowth');tgEl.textContent=tg;tgEl.className='value '+(String(tg).startsWith('+')?'positive':String(tg).startsWith('-')?'negative':'');
+ const ms=monthFirstSnapshot(monthDhaka()),me=monthLastSnapshot(monthDhaka());if(ms&&me){const a=totalsForSnapshot(ms),b=totalsForSnapshot(me);mg=signed(b.pages+b.groups-a.pages-a.groups);mgs='From '+ms.date+' to '+me.date}
+ document.getElementById('monthGrowth').textContent=mg;document.getElementById('monthGrowthSub').textContent=mgs;renderTopPages();renderNiches();renderRecent();renderGrowthChart();
+}
+function renderGrowthChart(){
+ const el=document.getElementById('growthChart');if(!el)return;const arr=[...data.snapshots].sort((a,b)=>a.date.localeCompare(b.date)).slice(-14);
+ if(!arr.length){el.innerHTML='<div class="empty">Save daily snapshots to see your growth chart here.</div>';return}
+ const vals=arr.map(s=>{const t=totalsForSnapshot(s);return {date:s.date.slice(5),total:t.pages+t.groups}});
+ const w=760,h=220,left=42,right=18,top=18,bottom=30,plotW=w-left-right,plotH=h-top-bottom,max=Math.max(...vals.map(v=>v.total),1),min=Math.min(...vals.map(v=>v.total),0),range=Math.max(1,max-min);
+ const pts=vals.map((v,i)=>({x:left+(vals.length===1?plotW/2:i*plotW/(vals.length-1)),y:top+plotH-(v.total-min)/range*plotH,...v}));
+ const path=pts.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' '),area=path+` L ${pts[pts.length-1].x} ${top+plotH} L ${pts[0].x} ${top+plotH} Z`;
+ const grid=[0,.5,1].map(f=>{const y=top+plotH*f;return `<line class="chart-grid" x1="${left}" y1="${y}" x2="${w-right}" y2="${y}"/>`}).join('');
+ const labels=pts.map((p,i)=>i===0||i===pts.length-1||i===Math.floor((pts.length-1)/2)?`<text class="chart-label" x="${p.x}" y="${h-7}" text-anchor="middle">${esc(p.date)}</text>`:'').join('');
+ const dots=pts.map(p=>`<circle class="chart-dot" cx="${p.x}" cy="${p.y}" r="4"><title>${esc(p.date)}: ${fmt(p.total)} total audience</title></circle>`).join('');
+ el.innerHTML=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Audience growth line chart"><defs><linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60a5fa" stop-opacity=".35"/><stop offset="100%" stop-color="#60a5fa" stop-opacity=".02"/></linearGradient></defs>${grid}<path class="chart-area" d="${area}"/><path class="chart-line" d="${path}"/>${dots}${labels}</svg>`;
+}
+function renderTopPages(){const list=data.accounts.filter(a=>a.type==='Page').sort((a,b)=>b.count-a.count).slice(0,5),max=Math.max(1,...list.map(a=>a.count));document.getElementById('topPages').innerHTML=list.length?list.map(a=>`<div class="barrow"><span>${esc(a.name)}</span><div class="bartrack"><div class="barfill" style="width:${Math.max(1,a.count/max*100)}%"></div></div><strong>${fmt(a.count)}</strong></div>`).join(''):'<div class="empty">Add a Page to see the ranking.</div>'}
+function renderNiches(){const niches=['Golden Retriever','Australian Shepherd','Bernese Mountain Dog','Cat','Other'],emojis={'Golden Retriever':'🐕','Australian Shepherd':'🐾','Bernese Mountain Dog':'🐶','Cat':'🐈','Other':'📌'};document.getElementById('nicheOverview').innerHTML=niches.map(n=>{const acc=data.accounts.filter(a=>a.niche===n),total=acc.reduce((s,a)=>s+(Number(a.count)||0),0);return `<div class="niche"><div class="emoji">${emojis[n]}</div><h4>${esc(n)}</h4><div class="big">${fmt(total)}</div><small>${acc.filter(a=>a.type==='Page').length} Pages · ${acc.filter(a=>a.type==='Group').length} Groups</small></div>`}).join('')}
+function renderRecent(){const arr=[...data.snapshots].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);document.getElementById('recentHistory').innerHTML=arr.length?`<div class="tablewrap"><table><thead><tr><th>Date (Dhaka)</th><th>Page Followers</th><th>Group Members</th><th>Total Audience</th><th>Note</th></tr></thead><tbody>${arr.map(s=>{const t=totalsForSnapshot(s);return `<tr><td>${esc(s.date)}</td><td>${fmt(t.pages)}</td><td>${fmt(t.groups)}</td><td><strong>${fmt(t.pages+t.groups)}</strong></td><td>${esc(s.note||'—')}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">No saved snapshots yet. Open Daily Tracker and save your first snapshot.</div>'}
+function renderTracker(){
+ const date=document.getElementById('entryDate').value||todayDhaka(),saved=getSnapshot(date),counts=saved?{...saved.counts}:currentCounts();
+ document.getElementById('snapshotNote').value=saved?.note||'';
+ document.getElementById('trackerRows').innerHTML=data.accounts.map((a,i)=>`<tr><td><div class="tracker-order"><button type="button" class="secondary small" data-move="${esc(a.id)}" data-dir="-1" title="Move up" ${i===0?'disabled':''}>↑</button> <button type="button" class="secondary small" data-move="${esc(a.id)}" data-dir="1" title="Move down" ${i===data.accounts.length-1?'disabled':''}>↓</button></div></td><td><strong>${esc(a.name)}</strong></td><td><span class="typepill ${a.type==='Page'?'pagepill':'grouppill'}">${a.type}</span></td><td>${esc(a.niche)}</td><td><input class="count" aria-label="${esc(a.name)} followers or members" type="number" min="0" step="1" data-count-id="${esc(a.id)}" value="${Number(counts[a.id]??a.count)||0}"></td></tr>`).join('');
+ document.querySelectorAll('[data-move]').forEach(btn=>btn.addEventListener('click',()=>{const i=data.accounts.findIndex(a=>a.id===btn.dataset.move),j=i+Number(btn.dataset.dir);if(j<0||j>=data.accounts.length)return;[data.accounts[i],data.accounts[j]]=[data.accounts[j],data.accounts[i]];saveLocal();renderTracker();showToast('Account order updated.')}));
+ document.getElementById('saveSnapshot').textContent='Save '+(date===todayDhaka()?"Today's":date)+' Snapshot';document.getElementById('trackerDateLabel').textContent=date;
+}
+document.getElementById('entryDate').addEventListener('change',renderTracker);
+document.getElementById('loadOrSave').addEventListener('click',()=>{const d=document.getElementById('entryDate').value;if(!d)return showToast('Choose a date first.');if(!getSnapshot(d)){renderTracker();showToast('No saved snapshot for that date. Current counts loaded.')}else{renderTracker();showToast('Saved snapshot loaded.')}});
+document.getElementById('saveSnapshot').addEventListener('click',()=>{
+ const date=document.getElementById('entryDate').value;if(!date)return showToast('Choose a snapshot date.');
+ const counts={};document.querySelectorAll('[data-count-id]').forEach(el=>counts[el.dataset.countId]=Math.max(0,Math.floor(Number(el.value)||0)));
+ data.accounts.forEach(a=>{if(counts[a.id]!==undefined)a.count=counts[a.id]});
+ const snap={date,counts,note:document.getElementById('snapshotNote').value.trim(),savedAt:new Date().toISOString()},idx=data.snapshots.findIndex(s=>s.date===date);
+ if(idx>=0)data.snapshots[idx]=snap;else data.snapshots.push(snap);data.snapshots.sort((a,b)=>a.date.localeCompare(b.date));
+ if(saveLocal()){renderAll();document.getElementById('entryDate').value=date;renderTracker();showToast('Snapshot saved for '+date+' (Bangladesh time).')}
+});
+document.getElementById('clearCounts').addEventListener('click',()=>{document.querySelectorAll('[data-count-id]').forEach(el=>el.value='0');showToast('Inputs cleared. Save to apply changes.')});
+function renderManage(){
+ document.getElementById('manageRows').innerHTML=data.accounts.map(a=>`<tr><td><input class="nameinput" aria-label="Account name" data-edit="name" data-id="${esc(a.id)}" value="${esc(a.name)}"></td><td><select aria-label="Account type" data-edit="type" data-id="${esc(a.id)}"><option value="Page" ${a.type==='Page'?'selected':''}>Page</option><option value="Group" ${a.type==='Group'?'selected':''}>Group</option></select></td><td><select aria-label="Niche" data-edit="niche" data-id="${esc(a.id)}">${['Golden Retriever','Australian Shepherd','Bernese Mountain Dog','Cat','Other'].map(n=>`<option ${a.niche===n?'selected':''}>${esc(n)}</option>`).join('')}</select></td><td>${fmt(a.count)}</td><td><button type="button" class="danger small" data-delete="${esc(a.id)}">Remove</button></td></tr>`).join('');
+ document.querySelectorAll('[data-edit]').forEach(el=>el.addEventListener('change',()=>{const a=data.accounts.find(x=>x.id===el.dataset.id);if(!a)return;a[el.dataset.edit]=el.value;if(saveLocal()){renderAll();showToast('Account updated.')}}));
+ document.querySelectorAll('[data-delete]').forEach(el=>el.addEventListener('click',()=>{if(!confirm('Remove this account? Its counts will no longer be included in totals.'))return;data.accounts=data.accounts.filter(a=>a.id!==el.dataset.delete);if(saveLocal()){renderAll();showToast('Account removed.')}}));
+}
+document.getElementById('addAccount').addEventListener('click',()=>{const name=document.getElementById('newName').value.trim();if(!name)return showToast('Enter an account name.');data.accounts.push({id:'a'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),name,type:document.getElementById('newType').value,niche:document.getElementById('newNiche').value,count:0});if(saveLocal()){document.getElementById('newName').value='';renderAll();showToast('Account added.')}});
+function renderHistory(){
+ const month=document.getElementById('monthSelect').value||monthDhaka(),arr=data.snapshots.filter(s=>s.date.startsWith(month)).sort((a,b)=>a.date.localeCompare(b.date)),first=arr[0],last=arr[arr.length-1];let delta=0;
+ if(first&&last){const a=totalsForSnapshot(first),b=totalsForSnapshot(last);delta=b.pages+b.groups-a.pages-a.groups}
+ document.getElementById('historyStats').innerHTML=`<div class="historycard"><span class="muted tiny">Snapshots this month</span><strong>${arr.length}</strong><span class="tiny muted">Saved dates</span></div><div class="historycard"><span class="muted tiny">Month's audience change</span><strong class="${delta>0?'positive':delta<0?'negative':''}">${first&&last?signed(delta):'—'}</strong><span class="tiny muted">${first&&last?esc(first.date)+' → '+esc(last.date):'Save at least one snapshot'}</span></div><div class="historycard"><span class="muted tiny">Latest total audience</span><strong>${last?fmt(totalsForSnapshot(last).pages+totalsForSnapshot(last).groups):'—'}</strong><span class="tiny muted">${last?esc(last.date):'No data for this month'}</span></div>`;
+ document.getElementById('historyTable').innerHTML=arr.length?`<div class="tablewrap"><table><thead><tr><th>Date</th><th>Page Followers</th><th>Group Members</th><th>Total Audience</th><th>Change vs previous snapshot</th><th>Note</th></tr></thead><tbody>${arr.slice().reverse().map(s=>{const t=totalsForSnapshot(s),p=prevSnapshot(s.date),pt=p?totalsForSnapshot(p):null,d=pt?(t.pages+t.groups)-(pt.pages+pt.groups):null;return `<tr><td>${esc(s.date)}</td><td>${fmt(t.pages)}</td><td>${fmt(t.groups)}</td><td><strong>${fmt(t.pages+t.groups)}</strong></td><td class="${d>0?'positive':d<0?'negative':''}">${d===null?'—':signed(d)}</td><td>${esc(s.note||'—')}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">No snapshots for this month. Save a daily snapshot to start your history.</div>';
+}
+document.getElementById('monthSelect').addEventListener('change',renderHistory);
+function downloadBlob(blob,name){
+ try{const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.style.display='none';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);return true}
+ catch(e){console.error(e);showToast('Download failed. Try Chrome/Edge and allow downloads.');return false}
+}
+function exportJson(){
+ try{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'});if(downloadBlob(blob,'facebook-growth-planner-'+todayDhaka()+'.json'))showToast('JSON backup download started. Check your Downloads folder.')}
+ catch(e){showToast('Could not create JSON backup: '+e.message)}
+}
+function openRestorePicker(){showView('backup');const input=document.getElementById('headerJsonFile');input.value='';input.click()}
+document.getElementById('headerUpload').addEventListener('click',openRestorePicker);
+document.getElementById('headerJsonFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(f)await restoreFile(f);e.target.value=''});
+document.getElementById('quickExport').addEventListener('click',exportJson);
+document.getElementById('exportJson').addEventListener('click',exportJson);
+document.getElementById('trackerExport').addEventListener('click',exportJson);
+document.getElementById('importJson').addEventListener('click',async()=>{const f=document.getElementById('jsonFile').files?.[0];if(!f)return showToast('Choose a JSON file first.');await restoreFile(f)});
+async function restoreFile(file){
+ try{
+  if(file.size>10*1024*1024)throw new Error('File is too large (maximum 10 MB).');
+  const raw=await file.text();let parsed;try{parsed=JSON.parse(raw)}catch(_){throw new Error('This file is not valid JSON.')}
+  const restored=normalizeData(parsed);
+  if(!confirm(`Restore ${restored.accounts.length} accounts and ${restored.snapshots.length} snapshots from "${file.name}"? Current planner data will be replaced.`))return;
+  const oldData=data;data=restored;
+  if(!saveLocal()){data=oldData;return}
+  renderAll();showToast('Backup restored successfully.');
+ }catch(e){console.error('Restore failed:',e);showToast('Could not restore: '+e.message)}
+}
+function exportCsv(){
+ const rows=[['Date (Dhaka)','Page Followers','Group Members','Total Audience','Note']];
+ [...data.snapshots].sort((a,b)=>a.date.localeCompare(b.date)).forEach(s=>{const t=totalsForSnapshot(s);rows.push([s.date,t.pages,t.groups,t.pages+t.groups,s.note||''])});
+ const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+ downloadBlob(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}),'facebook-growth-history-'+todayDhaka()+'.csv');showToast('CSV download started.');
+}
+document.getElementById('exportCsv').addEventListener('click',exportCsv);
+document.getElementById('historyExport').addEventListener('click',exportCsv);
+document.getElementById('resetData').addEventListener('click',()=>{if(!confirm('Reset all accounts and snapshots to the original starter list? Download a backup first if needed.'))return;data={version:1,timezone:TZ,accounts:cloneSeed(),snapshots:[],updatedAt:null};if(saveLocal()){renderAll();showToast('Planner data reset.')}});
+loginInit();
+</script>
+</body>
+</html>
